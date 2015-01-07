@@ -1,3 +1,21 @@
+<img height="150px" width="150px" src="https://raw.githubusercontent.com/kuldikin/DevCalculator/master/app/styles/images/logo/icon1024.png">
+
+# DevCalculator
+
+Developer calculator built with node-webkit, javascript, html and css.
+
+# Build
+  * `npm install`
+  * `grunt build[:<target>]` where `<target>` is `all || [win,osx,linux32,linux64]`.
+  Defaults to the current platform.
+
+# dev
+
+ * `npm install`
+ * `grunt run`
+
+# WTFPL LICENSE
+
            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
                    Version 2, December 2004
 
