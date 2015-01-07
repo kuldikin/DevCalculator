@@ -1,4 +1,4 @@
-<img height="150px" width="150px" src="https://raw.githubusercontent.com/kuldikin/DevCalculator/master/app/styles/images/logo/icon1024.png">
+<img height="150px" width="150px" src="https://raw.githubusercontent.com/kuldikin/DevCalculator/master/app/styles/images/logo/Icon1024.png">
 
 # DevCalculator
 
