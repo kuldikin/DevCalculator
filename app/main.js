@@ -2,40 +2,78 @@ requirejs( [ "config" ], function( require ) {
 
     requirejs( [
         "underscore",
-        "jquery"
-    ], function( _, $ ) {
+        "jquery",
+        "app"
+    ], function( _, $, Calculator ) {
 
-        // We should use domains instead
+        Calculator.gui = requireNode( "nw.gui" );
+        Calculator.window = Calculator.gui.Window.get();
+
         window.process.on( "uncaughtException", function( err ) {
             console.log( "Caught exception: " + err );
         } );
 
-        var gui = requireNode( "nw.gui" );
-
         $( ".window-button.close" ).on( "click", function( e ) {
             e.preventDefault();
-            gui.Window.get().close();
+            Calculator.window.close();
         } );
 
         $( ".window-button.minimize" ).on( "click", function( e ) {
             e.preventDefault();
-            gui.Window.get().minimize();
+            Calculator.window.minimize();
         } );
 
 
         $( ".window-button.fullscreen" ).on( "click", function( e ) {
             if ( $( ".window-button.fullscreen" ).data( "is-maximized", false ) ) {
-                gui.Window.get().toggleFullscreen();
+                Calculator.window.toggleFullscreen();
             }
         } );
 
         $( ".window-button.debug" ).on( "click", function( e ) {
-            gui.Window.get().showDevTools();
+            Calculator.window.showDevTools();
         } );
 
         $( ".window-button.reload" ).on( "click", function( e ) {
-            gui.Window.get().reload();
+            Calculator.window.reload();
         } );
+
+        Calculator.window.on( "blur", function() {
+            Calculator.blur = true;
+            $( "body" ).addClass( "blur" );
+        } );
+
+        Calculator.window.on( "focus", function() {
+            Calculator.blur = false;
+            $( "body" ).removeClass( "blur" );
+        } );
+
+        // Create default menus in OSX for copy/paste support.
+        // https://github.com/rogerwang/node-webkit/wiki/Menu#menucreatemacbuiltinappname
+        if ( requireNode( "os" ).platform() === "darwin" ) {
+            var mb = new Calculator.gui.Menu( {
+                type: "menubar"
+            } );
+            if ( mb.createMacBuiltin ) {
+                mb.createMacBuiltin( "DevCalculator" );
+
+                // Add default OSX Preferences menu item and key binding
+                mb.items[ 0 ].submenu.insert( new Calculator.gui.MenuItem( {
+                    type: "separator"
+                } ), 2 );
+                mb.items[ 0 ].submenu.insert( new Calculator.gui.MenuItem( {
+                    type: "normal",
+                    label: "Preferences",
+                    key: ",",
+                    modifiers: "cmd",
+                    click: function() {
+                        
+                    }
+                } ), 2 );
+
+                Calculator.window.menu = mb;
+            }
+        }
 
     } );
 } );

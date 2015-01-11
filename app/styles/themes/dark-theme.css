@@ -1,74 +1,74 @@
 /* @group Main */
 
-html, body{
-	color: #fff;
-	background: #151a1f;
- 	-webkit-font-smoothing: antialiased;
-	font: 1.0em 'Lato', Calibri, Arial, sans-serif;
-	overflow: hidden;
-	font-weight: normal;
+html, body {
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    font: 1.0em 'Lato', Calibri, Arial, sans-serif;
+    overflow: hidden;
+    font-weight: normal;
 }
-
+body {
+    background-color: #151a1f;
+}
 /* @end */
-
-
 
 /* @group Header */
 
-#win-header{
-/*background-color: #3b3b43;*/
-background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(59, 59, 67, 0.80)), to(rgba(38, 39, 44, 0.80)));
-background-image: -webkit-linear-gradient(top, rgba(59, 59, 67, 0.80), rgba(38, 39, 44, 0.80));
-background-image: -moz-linear-gradient(top, rgba(59, 59, 67, 0.80), rgba(38, 39, 44, 0.80));
-background-image: -o-linear-gradient(top, rgba(59, 59, 67, 0.80), rgba(38, 39, 44, 0.80));
-background-image: -ms-linear-gradient(top, rgba(59, 59, 67, 0.80), rgba(38, 39, 44, 0.80));
-background-image: linear-gradient(top, rgba(59, 59, 67, 0.80), rgba(38, 39, 44, 0.80));
-filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#3b3b43', EndColorStr='#26272c');
-	border-bottom: 1px solid #000;
-
+#win-header {
+    background-image: -webkit-linear-gradient(top, rgba(59, 59, 67, 0.80), rgba(38, 39, 44, 0.80));
+    background-image: linear-gradient(top, rgba(59, 59, 67, 0.80), rgba(38, 39, 44, 0.80));
+    border-bottom: 1px solid #000;
 }
-
-#win-header .title{
-	color: #fff;
-	text-shadow: rgba(0,0,0,0.5) 0 -1px 0;
-	font-size: 0.85em;
-	text-transform: capitalize;
-	text-align: center;
+#win-header .title {
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 -1px 0;
+    font-size: 0.85em;
+    text-transform: capitalize;
+    text-align: center;
 }
-
 /* @end */
 
+/* @group blur  */
+
+body.blur {
+    background-color: #fff !important;
+    opacity: 0.9;
+}
+body.blur #win-header .title {
+    color: #999;
+}
+body.blur .window-controls .window-button {
+    background-color: lightgray !important;
+}
+body.blur #calc-header {
+    opacity: 0.7;
+}
+/* @end */
 
 /* @group output  */
 
-#calc-header{
-	border-color: #1c2127;
+#calc-header {
+    border-color: #1c2127;
 }
-
-.output-pane{
-	background-color: #333c44;
+.output-pane {
+    background-color: #333c44;
 }
-
-.output-pane .out-block{
-	border-color: #1c2127;
+.output-pane .out-block {
+    border-color: #1c2127;
 }
-
-#calc-header{
-	color: #111418;
-	border-color: #1c2127;
-	background: linear-gradient(to bottom, rgba(135,135,135,1) 0%,rgba(188,188,188,1) 50%,rgba(180,180,180,1) 100%,rgba(201,201,201,1) 100%);
+#calc-header {
+    color: #111418;
+    border-color: #1c2127;
+    background: linear-gradient(to bottom, rgba(135, 135, 135, 1) 0%, rgba(188, 188, 188, 1) 50%, rgba(180, 180, 180, 1) 100%, rgba(201, 201, 201, 1) 100%);
 }
-
 /* @end */
 
-.inp, .bin, .dec{
-	border-color: #1c2127;
+.inp, .bin, .dec {
+    border-color: #1c2127;
 }
-
-#calculator .inp{
-	background-color: #151a1f;
+#calculator .inp {
+    background-color: #151a1f;
 }
-
 #calculator .bin, #calculator .dec, #calculator .hex {
-	background-color: #333c44;
+    background-color: #333c44;
 }
