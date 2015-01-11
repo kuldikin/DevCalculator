@@ -2,7 +2,7 @@
   "name": "DevCalculator",
   "version": "1.0.0-beta",
   "description": "Calculator",
-  "main": "index.html",
+  "main": "app://host/index.html",
   "repository": {
     "type": "git",
     "url": "git@github.com:kuldikin/DevCalculator.git"
@@ -17,15 +17,13 @@
   "window": {
     "title": "DevCalculator",
     "icon": "app://../images/logo/DevCalculator.png",
-    "toolbar": true,
+    "toolbar": false,
     "frame": false,
     "width": 800,
     "height": 500,
     "position": "center",
     "min_width": 400,
-    "min_height": 200,
-    "max_width": 800,
-    "max_height": 600
+    "min_height": 200
   },
   "devDependencies": {
     "bower": "^1.3.3",

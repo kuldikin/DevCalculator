@@ -10,7 +10,32 @@ requirejs( [ "config" ], function( require ) {
             console.log( "Caught exception: " + err );
         } );
 
-        $("i.out").text("YEEEAH!");
-        console.log( "calculator ready!" );
+        var gui = requireNode( "nw.gui" );
+
+        $( ".window-button.close" ).on( "click", function( e ) {
+            e.preventDefault();
+            gui.Window.get().close();
+        } );
+
+        $( ".window-button.minimize" ).on( "click", function( e ) {
+            e.preventDefault();
+            gui.Window.get().minimize();
+        } );
+
+
+        $( ".window-button.fullscreen" ).on( "click", function( e ) {
+            if ( $( ".window-button.fullscreen" ).data( "is-maximized", false ) ) {
+                gui.Window.get().toggleFullscreen();
+            }
+        } );
+
+        $( ".window-button.debug" ).on( "click", function( e ) {
+            gui.Window.get().showDevTools();
+        } );
+
+        $( ".window-button.reload" ).on( "click", function( e ) {
+            gui.Window.get().reload();
+        } );
+
     } );
 } );

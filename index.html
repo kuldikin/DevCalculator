@@ -5,14 +5,50 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>DevCalculator</title>
-        <!-- build:[href] DevCalculator.css -->
+        <!-- build:css DevCalculator.css -->
         <link id="theme-base" rel="stylesheet" href="/app/styles/index.css">
+        <style type="text/css">
+            #win-header .window-controls .dev{
+                display: inline-block;
+            }    
+        </style>
         <!-- /build -->
     </head>
     <body>
-        <h1>Hello Node-Webkit!</h1>
-        <i class="out">text</i>
-        <!-- build:[src] DevCalculator.js -->
+        <div id="header">
+            <div id="win-header" style="-webkit-app-region: drag">
+                <div class="title">
+                    DevCalculator
+                </div>
+                <div class="window-controls">
+                    <div class="window-button close"><i class="iconic" data-glyph="x"></i></div>
+                    <div class="window-button minimize"><i class="iconic" data-glyph="minus"></i></div>
+                    <div class="window-button fullscreen"><i class="iconic" data-glyph="resize-both"></i></div>
+                    <div class="dev">
+                        <div class="window-button debug"><i class="iconic" data-glyph="bug"></i></div>
+                        <div class="window-button reload"><i class="iconic" data-glyph="reload"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div id="calc-header">
+                <h2 class="inp">input</h2>
+                <h2 class="bin">bin</h2>
+                <h2 class="dec">dec</h2>
+                <h2 class="hex">hex</h2>
+            </div>
+        </div>
+        <div id="content">
+            <div id="calculator">
+                <div class="inp"></div>
+                <div class="bin"></div>
+                <div class="dec"></div>
+                <div class="hex"></div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            window.requireNode = window.require;
+        </script>
+        <!-- build:js DevCalculator.js -->
         <script data-main="/app/main" src="/vendor/bower/requirejs/require.js"></script>
         <!-- /build -->
     </body>
